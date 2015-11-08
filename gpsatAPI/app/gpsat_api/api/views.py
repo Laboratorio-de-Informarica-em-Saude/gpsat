@@ -19,14 +19,14 @@ def get_patient(id):
     if patient:
         return json_util.dumps(patient), status.HTTP_200_OK
     else:
-        return jsonify({'error': 'not found'}), status.NOT_FOUND
+        return jsonify({'error': 'not found'}), status.HTTP_404_NOT_FOUND
 
 
 @main_blueprint.route('/patients/', methods=['GET', 'POST', 'PUT'])
 def patients():
     db = get_db()
     if request.method == 'GET':
-        patients = list(db.patients.find({}))
+        patient = list(db.patients.find({}))
         return json_util.dumps(patient), status.HTTP_200_OK
     else:
         patient = json_util.loads(request.data)

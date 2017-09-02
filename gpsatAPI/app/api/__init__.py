@@ -3,7 +3,7 @@ from flask import Blueprint
 
 api = Blueprint('api', __name__)
 
-from . import form, errors
+from . import form, errors, auth
 
 
 def create_app(config_name):

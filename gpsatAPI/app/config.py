@@ -1,4 +1,4 @@
-"""Config file for project"""
+"""Config file for project."""
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 

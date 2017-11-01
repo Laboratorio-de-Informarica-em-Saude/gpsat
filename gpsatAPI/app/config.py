@@ -4,25 +4,30 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config(object):
-    DEBUG = False
-    TESTING = False
-    CSRF_ENABLED = True
-    SECRET_KEY = 'this-really-needs-to-be-changed'
-
-
-class ProductionConfig(Config):
-    DEBUG = False
-
-
-class StagingConfig(Config):
-    DEVELOPMENT = True
     DEBUG = True
+    TESTING = False
+    SECRET_KEY = 'this-really-needs-to-be-changed'
+    DB_URI = "mongodb://localhost"
 
 
 class DevelopmentConfig(Config):
-    DEVELOPMENT = True
+    DB_NAME = "gpsat"
     DEBUG = True
 
 
 class TestingConfig(Config):
-    TESTING = True
+    TESTING=True
+    SERVER_NAME = "localhost:5000"
+    DB_NAME = "gpsat_test"
+
+
+class ProductionConfig(Config):
+    DB_NAME = "gpsat"
+    DEBUG = False
+
+
+config = {'development': DevelopmentConfig,
+          'testing': TestingConfig,
+          'production': ProductionConfig,
+          'default': DevelopmentConfig
+          }

@@ -1,10 +1,8 @@
 from . import main_blueprint
-from gpsat_api import get_db_connection
 from flask import current_app, request
 from flask.json import jsonify
 from bson import json_util, ObjectId
 from pymongo import MongoClient
-import numpy as np
 from http import HTTPStatus as status
 
 

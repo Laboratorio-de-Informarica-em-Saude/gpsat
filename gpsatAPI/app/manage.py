@@ -12,11 +12,11 @@ def make_shell_context():
     return dict(app=app)
 
 
+@manager.command
 def test():
     import unittest
-    suite = unittest.TestSuite(
-        [unittest.TestLoader().loadTestsFromTestCase(RestTests)])
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    tests = unittest.TestLoader().discover('.')
+    unittest.TextTestRunner(verbosity=2).run(tests)
 
 
 def main():

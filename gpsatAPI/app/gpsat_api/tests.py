@@ -1,6 +1,7 @@
 from . import create_app, get_db_connection
 from bson import json_util, ObjectId
 from flask import current_app, url_for
+import unittest
 
 
 class RestTests(unittest.TestCase):

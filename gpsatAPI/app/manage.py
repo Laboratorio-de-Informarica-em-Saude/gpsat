@@ -1,7 +1,7 @@
 import os
 from gpsat_api import create_app
 from gpsat_api.tests import RestTests
-from flask.ext.script import Manager, Shell, Server
+from flask_script import Manager, Shell, Server
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 app.debug = True

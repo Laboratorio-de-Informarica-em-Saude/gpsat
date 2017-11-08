@@ -9,6 +9,10 @@ class Config(object):
     SECRET_KEY = 'this-really-needs-to-be-changed'
     DB_URI = "mongodb://localhost"
 
+    @staticmethod
+    def init_app(app):
+        pass
+
 
 class DevelopmentConfig(Config):
     DB_NAME = "gpsat"
@@ -16,7 +20,7 @@ class DevelopmentConfig(Config):
 
 
 class TestingConfig(Config):
-    TESTING=True
+    TESTING = True
     SERVER_NAME = "localhost:5000"
     DB_NAME = "gpsat_test"
 

@@ -1,6 +1,7 @@
 from config import config
 from flask import Flask
 from pymongo import MongoClient
+from flask_cors import CORS
 
 
 def create_app(config_name):
@@ -9,6 +10,7 @@ def create_app(config_name):
     config[config_name].init_app(app)
     from .api import main_blueprint
     app.register_blueprint(main_blueprint)
+    CORS(app, resources=r'/api/*', allow_headers='Content-Type')
     return app
 
 
